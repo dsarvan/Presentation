@@ -1,0 +1,131 @@
+\documentclass[8pt]{beamer}
+\mode<presentation>{}
+
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xspace}
+
+\graphicspath{{/home/saran/Project/Images/}}
+\usetheme{metropolis}
+\setbeamercolor{frametitle}{fg=mDarkTeal, bg=black!2}
+\usecolortheme[snowy]{owl}
+
+\title{Finite Difference Time Domain}
+\author{\normalsize{D. Saravanan}}
+\institute{
+    \normalsize{Department of Physics}\\
+    \normalsize{Indian Institute of Technology Madras}
+    }
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Introduction}
+To learn and do three-dimensional electromagnetic simulation using the finite-difference
+time-domain (FDTD) method.
+
+Type of material:
+\begin{enumerate}
+\item Free space
+\item Complex dielectric material
+\item Frequency-dependent material
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+Some choice that have been made:
+\begin{enumerate}
+\item The use of Normalised Units
+Maxwell's equations have been normalized by substituting
+\begin{equation*}
+\widetilde{E} = \displaystyle \sqrt{\frac{\varepsilon_{0}}{\mu_{0}}} E
+\end{equation*}
+
+this is a system similar to Gaussian units.
+
+The reason for using it here is the simplicity in the formulation. The $E$ and $H$ fields
+have the same order of magnitude. This has an advantage in formulating the PML.
+
+\item Maxwell's Equations with the Flux Density
+Time-domain Maxwell's equations from which the FDTD formulation is developed
+
+\begin{equation*}
+\frac{\partial E}{\partial t} = \frac{1}{\varepsilon_{0}} \curl{H}
+\end{equation*}
+
+\begin{equation*}
+\frac{\partial H}{\partial t} = - \frac{1}{\mu_{0}} \curl{E}
+\end{equation*}
+
+straight forward formulation
+
+
+\begin{equation*}
+\frac{\partial D}{\partial t} = \curl{H}
+\end{equation*}
+
+\begin{equation*}
+D = \varepsilon_{0} \varepsilon^{*}_{r} E
+\end{equation*}
+
+\begin{equation*}
+\frac{\partial H}{\partial t} = - \frac{1}{\mu_{0}} \curl{E}
+\end{equation*}
+
+formulation using the flux density in this formulation, it is assumed that the materials
+being simulated are non-magnetic, that is, $H = (1/\mu_{0}) B$
+
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Pulse propagating in free space in one dimension}
+Time-dependent Maxwell's curl equations for free space:
+
+\begin{equation*}
+\frac{\partial E}{\partial t} = \frac{1}{\varepsilon_{0}} \curl{H}
+\end{equation*}
+
+\begin{equation*}
+\frac{\partial H}{\partial t} = - \frac{1}{\mu_{0}} \curl{E}
+\end{equation*}
+
+simple one-dimensional case:
+\begin{equation*}
+\frac{\partial E_{x}}{\partial t} = - \frac{1}{\varepsilon_{0}} \frac{\partial H_{y}}{\partial z}
+\end{equation*}
+
+\begin{equation*}
+\frac{\partial H_{y}}{\partial t} = - \frac{1}{\mu_{0}} \frac{\partial E_{x}}{\partial z}
+\end{equation*}
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+%\begin{figure}[ht!]
+%\includegraphics[width=0.7\linewidth]{image1.pdf}
+%\end{figure}
+\end{frame}
+
+
+
+
+
+
+\end{document}
