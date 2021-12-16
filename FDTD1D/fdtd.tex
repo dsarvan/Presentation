@@ -110,10 +110,33 @@ simple one-dimensional case:
 \begin{equation*}
 \frac{\partial H_{y}}{\partial t} = - \frac{1}{\mu_{0}} \frac{\partial E_{x}}{\partial z}
 \end{equation*}
-
 \end{frame}
 
+\begin{frame}
+\frametitle{}
+\begin{itemize}
+\item The formulation of Equations assume that the $E$ and $H$ fields are interleaved in both
+space and time.
+\item The new value of $E_{x}$ is calculated from the previous value of $E_{x}$ and the
+most resent values of $H_{y}$. This is the fundamental paradigm of the FDTD method.
+\end{itemize}
 
+governing equations,
+\begin{equation*}
+\widetilde{E}_{x}^{n + 1/2} = \widetilde{E}_{x}^{n - 1/2} - \frac{1}{2} \left[ H_{y}^{n}
+\left( k + \frac{1}{2} \right) - H_{y}^{n} \left( k - \frac{1}{2} \right) \right]
+\end{equation*}
+
+\begin{equation*}
+H_{y}^{n + 1} \left( k + \frac{1}{2} \right) = H_{y}^{n} \left(k + \frac{1}{2} \right) -
+\frac{1}{2} \left[ \widetilde{E}_{x}^{n + 1/2} (k + 1) - \widetilde{E}_{x}^{n + 1/2} (k)
+\right]
+
+\end{equation*}
+
+
+
+\end{frame}
 
 
 
@@ -122,10 +145,5 @@ simple one-dimensional case:
 %\includegraphics[width=0.7\linewidth]{image1.pdf}
 %\end{figure}
 \end{frame}
-
-
-
-
-
 
 \end{document}
