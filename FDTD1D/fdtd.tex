@@ -10,7 +10,7 @@
 \usepackage{booktabs}
 \usepackage{xspace}
 
-\graphicspath{{/home/saran/Project/Images/}}
+\graphicspath{{/home/saran/Presentation/FDTD1D/Programs/Images/}}
 \usetheme{metropolis}
 \setbeamercolor{frametitle}{fg=mDarkTeal, bg=black!2}
 \usecolortheme[snowy]{owl}
@@ -85,10 +85,8 @@ D = \varepsilon_{0} \varepsilon^{*}_{r} E
 
 formulation using the flux density in this formulation, it is assumed that the materials
 being simulated are non-magnetic, that is, $H = (1/\mu_{0}) B$
-
 \end{enumerate}
 \end{frame}
-
 
 \begin{frame}
 \frametitle{Pulse propagating in free space in one dimension}
@@ -122,28 +120,60 @@ most resent values of $H_{y}$. This is the fundamental paradigm of the FDTD meth
 \end{itemize}
 
 governing equations,
+
 \begin{equation*}
-\widetilde{E}_{x}^{n + 1/2} = \widetilde{E}_{x}^{n - 1/2} - \frac{1}{2} \left[ H_{y}^{n}
-\left( k + \frac{1}{2} \right) - H_{y}^{n} \left( k - \frac{1}{2} \right) \right]
+\widetilde{E}_{x}^{n + 1/2} (k) = \widetilde{E}_{x}^{n - 1/2} (k) - \frac{\Delta
+t}{\sqrt{\varepsilon_{0} \mu_{0}} \cdot \Delta x} \Bigg[H_{y}^{n} \left(k + \frac{1}{2}\right)
+- H_{y}^{n} \left(k - \frac{1}{2}\right)\Bigg]
 \end{equation*}
 
 \begin{equation*}
-H_{y}^{n + 1} \left( k + \frac{1}{2} \right) = H_{y}^{n} \left(k + \frac{1}{2} \right) -
-\frac{1}{2} \left[ \widetilde{E}_{x}^{n + 1/2} (k + 1) - \widetilde{E}_{x}^{n + 1/2} (k)
-\right]
-
+H_{y}^{n + 1} \left(k + \frac{1}{2}\right) = H_{y}^{n} \left(k + \frac{1}{2}\right) -
+\frac{\Delta t}{\sqrt{\varepsilon_{0} \mu_{0}} \cdot \Delta x}  \Bigg[\widetilde{E}_{x}^{n + 1/2} (k + 1) 
+- \widetilde{E}_{x}^{n + 1/2} (k)\Bigg]
 \end{equation*}
-
-
-
 \end{frame}
 
+\begin{frame}
 
+Once the cell size $\Delta x$ is choosen, then the time step $\Delta t$ is determined by
+
+\begin{equation*}
+\Delta t = \frac{\Delta x}{2 \cdot c_{0}},
+\end{equation*}
+
+where $c_{0}$ is the speed of light in free space. Therefore, remembering that
+$\varepsilon_{0} \mu_{0} = 1/(c_{0})^{2}$,
+
+\begin{equation*}
+\frac{\Delta t}{\sqrt{\varepsilon_{0} \mu_{0}} \cdot \Delta x} = \frac{\Delta x}{2 \cdot
+c_{0}} \cdot \frac{1}{\sqrt{\varepsilon_{0} \mu_{0}} \cdot \Delta x} = \frac{1}{2}
+\end{equation*}
+
+\begin{equation*}
+\widetilde{E}_{x}^{n + 1/2} (k) = \widetilde{E}_{x}^{n - 1/2} (k) - \frac{1}{2} \Bigg[H_{y}^{n}
+\left(k + \frac{1}{2}\right) - H_{y}^{n} \left(k - \frac{1}{2}\right)\Bigg]
+\end{equation*}
+
+\begin{equation*}
+H_{y}^{n + 1} \left(k + \frac{1}{2}\right) = H_{y}^{n} \left(k + \frac{1}{2}\right) -
+\frac{1}{2} \Bigg[\widetilde{E}_{x}^{n + 1/2} (k + 1) - \widetilde{E}_{x}^{n + 1/2}
+(k)\Bigg]
+\end{equation*}
+\end{frame}
 
 \begin{frame}
-%\begin{figure}[ht!]
-%\includegraphics[width=0.7\linewidth]{image1.pdf}
-%\end{figure}
+\frametitle{Simulation in free space}
+\begin{figure}[ht!]
+\includegraphics[width=1.0\linewidth]{fd1d_1_1.pdf}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Simulation in free space}
+\begin{figure}[ht!]
+\includegraphics[width=1.0\linewidth]{fd1d_1_1.pdf}
+\end{figure}
 \end{frame}
 
 \end{document}
