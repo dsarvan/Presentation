@@ -10,7 +10,7 @@
 \usepackage{booktabs}
 \usepackage{xspace}
 
-\graphicspath{{/home/saran/Presentation/FDTD1D/Programs/Images/}}
+\graphicspath{{/home/saran/Presentation/FDTD1D/Programs/}}
 \usetheme{metropolis}
 \setbeamercolor{frametitle}{fg=mDarkTeal, bg=black!2}
 \usecolortheme[snowy]{owl}
@@ -25,10 +25,12 @@
 
 \begin{document}
 
+% frame 1
 \begin{frame}
 \titlepage
 \end{frame}
 
+% frame 2
 \begin{frame}
 \frametitle{Introduction}
 To learn and do three-dimensional electromagnetic simulation using the finite-difference
@@ -42,6 +44,7 @@ Type of material:
 \end{enumerate}
 \end{frame}
 
+% frame 3
 \begin{frame}
 \frametitle{}
 Some choice that have been made:
@@ -88,6 +91,7 @@ being simulated are non-magnetic, that is, $H = (1/\mu_{0}) B$
 \end{enumerate}
 \end{frame}
 
+% frame 4
 \begin{frame}
 \frametitle{Pulse propagating in free space in one dimension}
 Time-dependent Maxwell's curl equations for free space:
@@ -110,6 +114,7 @@ simple one-dimensional case:
 \end{equation*}
 \end{frame}
 
+% frame 5
 \begin{frame}
 \frametitle{}
 \begin{itemize}
@@ -134,8 +139,8 @@ H_{y}^{n + 1} \left(k + \frac{1}{2}\right) = H_{y}^{n} \left(k + \frac{1}{2}\rig
 \end{equation*}
 \end{frame}
 
+% frame 6
 \begin{frame}
-
 Once the cell size $\Delta x$ is choosen, then the time step $\Delta t$ is determined by
 
 \begin{equation*}
@@ -162,18 +167,233 @@ H_{y}^{n + 1} \left(k + \frac{1}{2}\right) = H_{y}^{n} \left(k + \frac{1}{2}\rig
 \end{equation*}
 \end{frame}
 
+% frame 7
 \begin{frame}
 \frametitle{Simulation in free space}
 \begin{figure}[ht!]
-\includegraphics[width=1.0\linewidth]{fd1d_1_1.pdf}
+\includegraphics[width=0.9\linewidth]{Problem_1_1/fd1d_1_1.pdf}
+\caption{FDTD simulation of a pulse in free space after 100 time steps. The pulse
+originated in the center and travels outward.}
 \end{figure}
 \end{frame}
 
+% frame 8
 \begin{frame}
 \frametitle{Simulation in free space}
 \begin{figure}[ht!]
-\includegraphics[width=1.0\linewidth]{fd1d_1_1.pdf}
+\includegraphics[width=0.9\linewidth]{Problem_1_1/fd1d_1_2.pdf}
+\caption{FDTD simulation of a pulse in free space after 100 time steps. It has two
+sources, one at $kc - 20$ and one at $kc + 20$}
 \end{figure}
 \end{frame}
+
+% frame 9
+\begin{frame}
+\frametitle{Simulation in free space}
+\begin{figure}[ht!]
+\includegraphics[width=0.9\linewidth]{Problem_1_1/fd1d_1_3.pdf}
+\caption{FDTD simulation of a pulse in free space after 100 time steps. Instead of $E_{x}$
+as the source, use $H_{y}$ at $k = kc$ as the source}
+\end{figure}
+\end{frame}
+
+% frame 10
+\begin{frame}
+\frametitle{Simulation in free space}
+\begin{figure}[ht!]
+\includegraphics[width=0.9\linewidth]{Problem_1_1/fd1d_1_4.pdf}
+\caption{FDTD simulation of a pulse in free space after 100 time steps. Instead of $E_{x}$
+as the source, use a two-point magnetic source at $kc - 1$ and $kc$ such that $hy[kc - 1]
+= -hy[kc]$}
+\end{figure}
+\end{frame}
+
+% frame 11
+\begin{frame}
+\frametitle{Stability and the FDTD method}
+\begin{itemize}
+\item An EM wave propagating in free space cannot go faster than the speed of light.
+\item To propagate a distance of one cell requires a minimum time of $\Delta t = \Delta
+x/c_{0}$.
+\item With a two-dimensional simulation, we must allow for the propagation in the diagonal
+direction, which brings the requirement to $\Delta t = \Delta x/(\sqrt{2} c_{0})$.
+\item With a three-dimensional simulation requires $\Delta t = \Delta x/(\sqrt{3} c_{0})$.
+\item This is summarized by the Courant Condition
+\begin{equation*}
+\Delta t = \displaystyle \frac{\Delta x}{\sqrt{n} \cdot c_{0}},
+\end{equation*}
+where $n$ is the dimension of the simulation.
+\end{itemize}
+\end{frame}
+
+% frame 12
+\begin{frame}
+\frametitle{Absorbing boundary condition in one dimension}
+\begin{itemize}
+\item Absorbing boundary conditions are necessary to keep outgoing $E$ and $H$ fields from
+being reflected back into the problem space.
+\item If a wave is going toward a boundary in free space, it is traveling at $c_{0}$, the
+speed of light.
+\item In one time step of the FDTD algorithem, it travels
+\begin{equation*}
+Distance = c_{0} \cdot \Delta t = c_{0} \cdot \frac{\Delta x}{2 \cdot c_{0}} =
+\frac{\Delta x}{2}
+\end{equation*}
+\item It takes two time steps for the field to cross one cell. Thus an acceptable boundary
+condition might be
+\begin{equation*}
+E_{x}^{n} (0) = E_{x}^{n-2} (1)
+\end{equation*}
+\end{itemize}
+\end{frame}
+
+% frame 13
+\begin{frame}
+\frametitle{}
+\begin{figure}[ht!]
+\includegraphics[width=0.9\linewidth]{Problem_1_3/fd1d_1_1.pdf}
+\caption{Simulation of an FDTD program with absorbing boundary conditions. Notice that the
+pulse is absorbed at the edges without reflecting anything back.}
+\end{figure}
+\end{frame}
+
+% frame 14
+\begin{frame}
+\frametitle{Propagation in a Dielectric medium}
+To simulate a medium with a dielectric constant other than $1$, we have to add the
+relative dielectric constant $\varepsilon_{r}$ to Maxwell's equations:
+
+\begin{equation*}
+\frac{\partial E}{\partial t} = \frac{1}{\varepsilon_{0} \varepsilon_{r}} \curl{H}
+\end{equation*}
+
+\begin{equation*}
+\frac{\partial H}{\partial t} = - \frac{1}{\mu_{0}} \curl{E}
+\end{equation*}
+
+simple one-dimensional case:
+\begin{equation*}
+\frac{\partial E_{x}}{\partial t} = - \frac{1}{\varepsilon_{0} \varepsilon_{r}} \frac{\partial H_{y}}{\partial z}
+\end{equation*}
+
+\begin{equation*}
+\frac{\partial H_{y}}{\partial t} = - \frac{1}{\mu_{0}} \frac{\partial E_{x}}{\partial z}
+\end{equation*}
+\end{frame}
+
+% frame 15
+\begin{frame}
+\frametitle{Propagation in a Dielectric medium}
+governing equations,
+
+\begin{equation*}
+\widetilde{E}_{x}^{n + 1/2} (k) = \widetilde{E}_{x}^{n - 1/2} (k) - \frac{1}{2 \cdot
+\varepsilon_{r}} \Bigg[H_{y}^{n}
+\left(k + \frac{1}{2}\right) - H_{y}^{n} \left(k - \frac{1}{2}\right)\Bigg]
+\end{equation*}
+
+\begin{equation*}
+H_{y}^{n + 1} \left(k + \frac{1}{2}\right) = H_{y}^{n} \left(k + \frac{1}{2}\right) -
+\frac{1}{2} \Bigg[\widetilde{E}_{x}^{n + 1/2} (k + 1) - \widetilde{E}_{x}^{n + 1/2}
+(k)\Bigg]
+\end{equation*}
+\end{frame}
+
+% frame 16
+\begin{frame}
+\frametitle{Propagation in a Dielectric medium}
+\begin{figure}[ht!]
+\includegraphics[width=0.9\linewidth]{Problem_1_4/fd1d_1_1.pdf}
+\caption{Simulation of a pulse striking dielectric material with a dielectric constant of
+$4$. The source originates at cell number $5$.}
+\end{figure}
+\end{frame}
+
+% frame 17
+\begin{frame}
+\frametitle{Simulating with a sinusoidal source}
+\begin{figure}[ht!]
+\includegraphics[width=0.9\linewidth]{Problem_1_5/fd1d_1_1.pdf}
+\caption{Simulation of a propagating sinusoidal wave of $700$ MHz striking a medium with a
+relative dielectric constant of $\varepsilon_{r} = 4$.}
+\end{figure}
+\end{frame}
+
+% frame 18
+\begin{frame}
+\frametitle{Simulating with a sinusoidal source}
+\begin{figure}[ht!]
+\includegraphics[width=0.9\linewidth]{Problem_1_6/fd1d_1_1.pdf}
+\caption{Simulation of a propagating sinusoidal wave of $3$ GHz striking a medium with a
+relative dielectric constant of $\varepsilon_{r} = 20$.}
+\end{figure}
+\end{frame}
+
+% frame 19
+\begin{frame}
+\frametitle{Propagation in a lossy dielectric medium}
+general form of time-dependent Maxwell's curl equations,
+
+\begin{equation*}
+\varepsilon_{r} \varepsilon_{0} \frac{\partial E}{\partial t} = \curl{H} - J
+\end{equation*}
+
+\begin{equation*}
+\frac{\partial H}{\partial t} = - \frac{1}{\mu_{0}} \curl{E}
+\end{equation*}
+
+$J$, the current density, can also be written as
+\begin{equation*}
+J = \sigma E
+\end{equation*}
+where $\sigma$ is the conductivity. 
+
+substituting,
+\begin{equation*}
+\frac{\partial E}{\partial t} = \frac{1}{\varepsilon_{r} \varepsilon_{0}} \curl{H} -
+\frac{\sigma}{\varepsilon_{r} \varepsilon_{0}} E
+\end{equation*}
+\end{frame}
+
+% frame 20
+\begin{frame}
+\frametitle{Propagation in a lossy dielectric medium}
+simple one-dimensional equation:
+\begin{equation*}
+\frac{\partial E_{x} (t)}{\partial t} = - \frac{1}{\varepsilon_{r} \varepsilon_{0}}
+\frac{\partial H_{y} (t)}{\partial z} - \frac{\sigma}{\varepsilon_{r} \varepsilon_{0}}
+E_{x} (t)
+\end{equation*}
+
+using the change of variables,
+\begin{equation*}
+\frac{\partial \widetilde{E}_{x} (t)}{\partial t} = - \frac{1}{\varepsilon_{r}
+\sqrt{\mu_{0} \varepsilon_{0}}} \frac{\partial H_{y} (t)}{\partial z} -
+\frac{\sigma}{\varepsilon_{r} \varepsilon_{0}} \widetilde{E}_{x} (t)
+\end{equation*}
+
+\begin{equation*}
+\frac{\partial H_{y} (t)}{\partial t} = - \frac{1}{\sqrt{\mu_{0} \varepsilon_{0}}}
+\frac{\partial \widetilde{E}_{x} (t)}{\partial t}
+\end{epsilon*}
+
+governing equations,
+\begin{equation*}
+\widetilde{E}_{x}^{n + 1/2} (k) = \frac{\displaystyle \left(1 - \frac{\Delta t \cdot \sigma}{2
+\varepsilon_{r} \varepsilon_{0}}\right)}{\displaystyle \left(1 + \frac{\Delta t \cdot \sigma}{2 \varepsilon_{r}
+\varepsilon_{0}}\right)} \widetilde{E}_{x}^{n - 1/2} (k) - \frac{\displaystyle
+\left(\frac{1}{2}\right)}{\displaystyle \varepsilon_{r} \left(1 + \frac{\Delta t \cdot
+\sigma}{2 \varepsilon_{r} \varepsilon_{0}}\right)} \Bigg[H_{y}^{n} \left(k +
+\frac{1}{2}\right) - H_{y}^{n} \left(k - \frac{1}{2}\right)\Bigg]
+\end{equation*}
+
+
+\end{frame}
+
+
+
+
+
+
 
 \end{document}
