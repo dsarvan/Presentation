@@ -6,6 +6,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{physics}
+\usepackage{bigints}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{xspace}
@@ -45,7 +46,7 @@ Type of material:
 \end{enumerate}
 \end{frame}
 
-% frame 3
+% frame 3 & 4
 \begin{frame}[allowframebreaks]{Outline}
 \frametitle{Formulation}
 Some choice that have been made:
@@ -95,7 +96,7 @@ being simulated are non-magnetic, that is, $H = (1/\mu_{0}) B$
 \end{enumerate}
 \end{frame}
 
-% frame 4
+% frame 5
 \begin{frame}
 \frametitle{Pulse propagating in free space in one-dimension}
 Time-dependent Maxwell's curl equations for free space:
@@ -118,7 +119,7 @@ simple one-dimensional case:
 \end{equation*}
 \end{frame}
 
-% frame 5
+% frame 6
 \begin{frame}
 \frametitle{Pulse propagating in free space in one-dimension}
 \begin{itemize}
@@ -143,7 +144,7 @@ H_{y}^{n + 1} \left(k + \frac{1}{2}\right) = H_{y}^{n} \left(k + \frac{1}{2}\rig
 \end{equation*}
 \end{frame}
 
-% frame 6
+% frame 7
 \begin{frame}
 \frametitle{Pulse propagating in free space in one-dimension}
 Once the cell size $\Delta x$ is choosen, then the time step $\Delta t$ is determined by
@@ -167,12 +168,11 @@ c_{0}} \cdot \frac{1}{\sqrt{\varepsilon_{0} \mu_{0}} \cdot \Delta x} = \frac{1}{
 
 \begin{equation*}
 H_{y}^{n + 1} \left(k + \frac{1}{2}\right) = H_{y}^{n} \left(k + \frac{1}{2}\right) -
-\frac{1}{2} \Bigg[\widetilde{E}_{x}^{n + 1/2} (k + 1) - \widetilde{E}_{x}^{n + 1/2}
-(k)\Bigg]
+\frac{1}{2} \Bigg[\widetilde{E}_{x}^{n + 1/2} (k + 1) - \widetilde{E}_{x}^{n + 1/2} (k)\Bigg]
 \end{equation*}
 \end{frame}
 
-% frame 7
+% frame 8
 \begin{frame}
 \frametitle{Simulation in free space}
 \begin{figure}[ht!]
@@ -182,7 +182,7 @@ originated in the center and travels outward.}
 \end{figure}
 \end{frame}
 
-% frame 8
+% frame 9
 \begin{frame}
 \frametitle{Simulation in free space}
 \begin{figure}[ht!]
@@ -192,7 +192,7 @@ sources, one at $kc - 20$ and one at $kc + 20$}
 \end{figure}
 \end{frame}
 
-% frame 9
+% frame 10
 \begin{frame}
 \frametitle{Simulation in free space}
 \begin{figure}[ht!]
@@ -202,7 +202,7 @@ as the source, use $H_{y}$ at $k = kc$ as the source}
 \end{figure}
 \end{frame}
 
-% frame 10
+% frame 11
 \begin{frame}
 \frametitle{Simulation in free space}
 \begin{figure}[ht!]
@@ -213,7 +213,7 @@ as the source, use a two-point magnetic source at $kc - 1$ and $kc$ such that $h
 \end{figure}
 \end{frame}
 
-% frame 11
+% frame 12
 \begin{frame}
 \frametitle{Stability and the FDTD method}
 \begin{itemize}
@@ -231,7 +231,7 @@ where $n$ is the dimension of the simulation.
 \end{itemize}
 \end{frame}
 
-% frame 12
+% frame 13
 \begin{frame}
 \frametitle{Absorbing boundary condition in one dimension}
 \begin{itemize}
@@ -252,7 +252,7 @@ E_{x}^{n} (0) = E_{x}^{n-2} (1)
 \end{itemize}
 \end{frame}
 
-% frame 13
+% frame 14
 \begin{frame}
 \frametitle{Absorbing boundary condition in one dimension}
 \begin{figure}[ht!]
@@ -262,7 +262,7 @@ pulse is absorbed at the edges without reflecting anything back.}
 \end{figure}
 \end{frame}
 
-% frame 14
+% frame 15
 \begin{frame}
 \frametitle{Propagation in a Dielectric medium}
 To simulate a medium with a dielectric constant other than $1$, we have to add the
@@ -286,7 +286,7 @@ simple one-dimensional case:
 \end{equation*}
 \end{frame}
 
-% frame 15
+% frame 16
 \begin{frame}
 \frametitle{Propagation in a Dielectric medium}
 governing equations,
@@ -304,7 +304,7 @@ H_{y}^{n + 1} \left(k + \frac{1}{2}\right) = H_{y}^{n} \left(k + \frac{1}{2}\rig
 \end{equation*}
 \end{frame}
 
-% frame 16
+% frame 17
 \begin{frame}
 \frametitle{Propagation in a Dielectric medium}
 \begin{figure}[ht!]
@@ -314,7 +314,7 @@ $4$. The source originates at cell number $5$.}
 \end{figure}
 \end{frame}
 
-% frame 17
+% frame 18
 \begin{frame}
 \frametitle{Simulating with a sinusoidal source}
 \begin{figure}[ht!]
@@ -324,7 +324,7 @@ relative dielectric constant of $\varepsilon_{r} = 4$.}
 \end{figure}
 \end{frame}
 
-% frame 18
+% frame 19
 \begin{frame}
 \frametitle{Simulating with a sinusoidal source}
 \begin{figure}[ht!]
@@ -334,7 +334,7 @@ relative dielectric constant of $\varepsilon_{r} = 20$.}
 \end{figure}
 \end{frame}
 
-% frame 19
+% frame 20
 \begin{frame}
 \frametitle{Propagation in a lossy dielectric medium}
 general form of time-dependent Maxwell's curl equations,
@@ -367,7 +367,7 @@ E_{x} (t)
 \end{equation*}
 \end{frame}
 
-% frame 20
+% frame 21
 \begin{frame}
 \frametitle{Propagation in a lossy dielectric medium}
 using the change of variables,
@@ -398,6 +398,7 @@ H_{y}^{n + 1} \left(k + \frac{1}{2}\right) = H_{y}^{n} \left(k + \frac{1}{2}\rig
 \end{equation*}
 \end{frame}
 
+% frame 22
 \begin{frame}
 \frametitle{Propagation in a lossy dielectric medium}
 \begin{figure}[ht!]
@@ -407,5 +408,132 @@ with a dielectric constant of $4$ and a conductivity of $0.04$ (S/m). The source
 MHz and originates at cell number $5$.}
 \end{figure}
 \end{frame}
+
+% frame 23
+\begin{frame}
+\frametitle{Reformulation using the flux density}
+general form of Maxwell's equations
+
+\begin{equation*}
+\frac{\partial D}{\partial t} = \curl{H}
+\end{equation*}
+
+\begin{equation*}
+D(\omega) = \varepsilon_{0} \cdot \varepsilon_{r}^{*} (\omega) \cdot E(\omega)
+\end{equation*}
+
+\begin{equation*}
+\frac{\partial H}{\partial t} = - \frac{1}{\mu_{0}} \curl{E}
+\end{equation*}
+
+where $D$ is the electric flux density.
+
+normalizing these equations, using
+
+\begin{equation*}
+\widetilde{E} = \sqrt{\frac{\varepsilon_{0}}{\mu_{0}}} \cdot E
+\end{equation*}
+
+\begin{equation*}
+\widetilde{D} = \sqrt{\frac{1}{\varepsilon_{0} \mu_{0}}} \cdot D
+\end{equation*}
+
+\end{frame}
+
+% frame 24
+\begin{frame}
+\frametitle{Reformulation using the flux density}
+
+which leads to
+
+\begin{equation*}
+\frac{\partial \widetilde{D}}{\partial t} = \frac{1}{\sqrt{\varepsilon_{0} \mu_{0}}} \curl{H}
+\end{equation*}
+
+\begin{equation*}
+\widetilde{D}(\omega) = \varepsilon_{r}^{*} (\omega) \cdot \widetilde{E}(\omega)
+\end{equation*}
+
+\begin{equation*}
+\frac{\partial H}{\partial t} = - \frac{1}{\sqrt{\varepsilon_{0} \mu_{0}}} \curl{\widetilde{E}}
+\end{equation*}
+
+We have to get $\widetilde{D}(\omega) = \varepsilon_{r}^{*} (\omega) \cdot
+\widetilde{E}(\omega)$ into a time-domain difference equation for implementation into
+FDTD. We will assume that we are dealing with a lossy dielectric medium of the form
+
+\begin{equation*}
+\varepsilon_{r}^{*}(\omega) = \varepsilon_{r} + \frac{\sigma}{j \omega \cdot
+\varepsilon_{0}}
+\end{equation*}
+
+substituting the above equation,
+
+\begin{equation*}
+\widetilde{D}(\omega) = \varepsilon_{r} \widetilde{E}(\omega) + \frac{\sigma}{j \omega \cdot \varepsilon_{0}} \widetilde{E}(\omega)
+\end{equation*}
+
+\end{frame}
+
+% frame 25
+\begin{frame}
+\frametitle{Reformulation using the flux density}
+Fourier theory tells us that $1/(j \omega)$ in the frequency domain is integration in the
+time domain, so the above equation becomes
+
+\begin{equation*}
+\widetilde{D}(t) = \varepsilon_{r} \widetilde{E}(t) + \frac{\sigma}{\varepsilon_{0}}
+\bigintssss_{0}^{t} \widetilde{E}(t') dt'
+\end{equation*}
+
+the integral will be approximated as a summation over the time steps $\Delta t$:
+
+\begin{equation*}
+\widetilde{D}^{n} = \varepsilon_{r} \widetilde{E}^{n} + \frac{\sigma \cdot \Delta
+t}{\varepsilon_{0}} \sum_{i = 0}^{n} \widetilde{E}^{i}
+\end{equation*}
+
+separating the $E^{n}$ term from the rest of the summation:
+
+\begin{equation*}
+\widetilde{D}^{n} = \varepsilon_{r} \widetilde{E}^{n} + \frac{\sigma \cdot \Delta
+t}{\varepsilon_{0}} \widetilde{E}^{n} + \frac{\sigma \cdot \Delta t}{\varepsilon_{0}}
+\sum_{i = 0}^{n - 1} \widetilde{E}^{i}
+\end{equation*}
+\end{frame}
+
+% frame 26
+\begin{frame}
+\frametitle{Reformulation using the flux density}
+We can calculate $E^{n}$, the current value of $E$, from the current value of $D$ and
+previous values of $E$.
+
+\begin{equation*}
+\widetilde{E}^{n} = \displaystyle \frac{\widetilde{D}^{n} - \displaystyle \frac{\sigma \cdot \Delta
+t}{\varepsilon_{0}} \displaystyle \sum\limits_{i=0}^{n-1} \widetilde{E}^{i}}{\displaystyle
+\varepsilon_{r} + \displaystyle \frac{\sigma \cdot \Delta t}{\varepsilon_{0}}}
+\end{equation*}
+
+governing equations,
+
+\begin{equation*}
+\widetilde{D}^{n+1/2} (k) = \widetilde{D}^{n-1/2} (k) - \frac{1}{2} \Bigg[H_{y}^{n}
+\left(k + \frac{1}{2}\right) - H_{y}^{n} \left(k - \frac{1}{2}\right)\Bigg] 
+\end{equation*}
+
+\begin{equation*}
+H_{y}^{n + 1} \left(k + \frac{1}{2}\right) = H_{y}^{n} \left(k + \frac{1}{2}\right) -
+\frac{1}{2} \Bigg[\widetilde{E}_{x}^{n + 1/2} (k + 1) - \widetilde{E}_{x}^{n + 1/2} (k)\Bigg]
+\end{equation*}
+
+\end{frame}
+
+
+
+
+
+
+
+
 
 \end{document}
