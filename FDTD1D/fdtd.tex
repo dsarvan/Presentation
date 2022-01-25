@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{physics}
 \usepackage{bigints}
+\usepackage{media9}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{xspace}
@@ -176,7 +177,12 @@ H_{y}^{n + 1} \left(k + \frac{1}{2}\right) = H_{y}^{n} \left(k + \frac{1}{2}\rig
 \begin{frame}
 \frametitle{Simulation in free space}
 \begin{figure}[ht!]
-\includegraphics[width=0.9\linewidth]{Problem_1_1/fd1d_1_1.pdf}
+\includemedia[
+width=0.9\linewidth,
+activate=pageopen,
+addresource=fd1d_1_1.flv,
+flashvars={source=fd1d_1_1.flv}
+]{\includegraphics[width=0.9\linewidth]{fd1d_1_1.pdf}}{VPlayer9.swf}
 \caption{FDTD simulation of a pulse in free space after 100 time steps. The pulse
 originated in the center and travels outward.}
 \end{figure}
