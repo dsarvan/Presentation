@@ -54,43 +54,43 @@ Some choice that have been made:
 \begin{enumerate}
 \item The use of Normalised Units: \\
 Maxwell's equations have been normalized by substituting
-\begin{equation*}
+\begin{equation}
 \widetilde{E} = \displaystyle \sqrt{\frac{\varepsilon_{0}}{\mu_{0}}} E
-\end{equation*}
+\end{equation}
 
 this is a system similar to Gaussian units.
 
 The reason for using it here is the simplicity in the formulation. The $E$ and $H$ fields
 have the same order of magnitude. This has an advantage in formulating the PML.
 
-\item Maxwell's Equations with the Flux Density: \\
+\item Maxwell's equations with the Flux Density: \\
 Time-domain Maxwell's equations from which the FDTD formulation is developed. \\
 
 straight forward formulation:
 
-\begin{equation*}
+\begin{equation}
 \frac{\partial E}{\partial t} = \frac{1}{\varepsilon_{0}} \curl{H}
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 \frac{\partial H}{\partial t} = - \frac{1}{\mu_{0}} \curl{E}
-\end{equation*}
+\end{equation}
 
 \vspace{1cm}
 
 formulation using the flux density:
 
-\begin{equation*}
+\begin{equation}
 \frac{\partial D}{\partial t} = \curl{H}
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 D = \varepsilon_{0} \varepsilon^{*}_{r} E
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 \frac{\partial H}{\partial t} = - \frac{1}{\mu_{0}} \curl{E}
-\end{equation*}
+\end{equation}
 
 in this formulation, it is assumed that the materials
 being simulated are non-magnetic, that is, $H = (1/\mu_{0}) B$
@@ -102,22 +102,22 @@ being simulated are non-magnetic, that is, $H = (1/\mu_{0}) B$
 \frametitle{Pulse propagating in free space in one-dimension}
 Time-dependent Maxwell's curl equations for free space:
 
-\begin{equation*}
+\begin{equation}
 \frac{\partial E}{\partial t} = \frac{1}{\varepsilon_{0}} \curl{H}
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 \frac{\partial H}{\partial t} = - \frac{1}{\mu_{0}} \curl{E}
-\end{equation*}
+\end{equation}
 
 simple one-dimensional case:
-\begin{equation*}
+\begin{equation}
 \frac{\partial E_{x}}{\partial t} = - \frac{1}{\varepsilon_{0}} \frac{\partial H_{y}}{\partial z}
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 \frac{\partial H_{y}}{\partial t} = - \frac{1}{\mu_{0}} \frac{\partial E_{x}}{\partial z}
-\end{equation*}
+\end{equation}
 \end{frame}
 
 % frame 6
@@ -132,17 +132,17 @@ most resent values of $H_{y}$. This is the fundamental paradigm of the FDTD meth
 
 governing equations,
 
-\begin{equation*}
+\begin{equation}
 \widetilde{E}_{x}^{n + 1/2} (k) = \widetilde{E}_{x}^{n - 1/2} (k) - \frac{\Delta
 t}{\sqrt{\varepsilon_{0} \mu_{0}} \cdot \Delta x} \Bigg[H_{y}^{n} \left(k + \frac{1}{2}\right)
 - H_{y}^{n} \left(k - \frac{1}{2}\right)\Bigg]
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 H_{y}^{n + 1} \left(k + \frac{1}{2}\right) = H_{y}^{n} \left(k + \frac{1}{2}\right) -
 \frac{\Delta t}{\sqrt{\varepsilon_{0} \mu_{0}} \cdot \Delta x}  \Bigg[\widetilde{E}_{x}^{n + 1/2} (k + 1) 
 - \widetilde{E}_{x}^{n + 1/2} (k)\Bigg]
-\end{equation*}
+\end{equation}
 \end{frame}
 
 % frame 7
@@ -150,27 +150,27 @@ H_{y}^{n + 1} \left(k + \frac{1}{2}\right) = H_{y}^{n} \left(k + \frac{1}{2}\rig
 \frametitle{Pulse propagating in free space in one-dimension}
 Once the cell size $\Delta x$ is choosen, then the time step $\Delta t$ is determined by
 
-\begin{equation*}
+\begin{equation}
 \Delta t = \frac{\Delta x}{2 \cdot c_{0}},
-\end{equation*}
+\end{equation}
 
 where $c_{0}$ is the speed of light in free space. Therefore, remembering that
 $\varepsilon_{0} \mu_{0} = 1/(c_{0})^{2}$,
 
-\begin{equation*}
+\begin{equation}
 \frac{\Delta t}{\sqrt{\varepsilon_{0} \mu_{0}} \cdot \Delta x} = \frac{\Delta x}{2 \cdot
 c_{0}} \cdot \frac{1}{\sqrt{\varepsilon_{0} \mu_{0}} \cdot \Delta x} = \frac{1}{2}
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 \widetilde{E}_{x}^{n + 1/2} (k) = \widetilde{E}_{x}^{n - 1/2} (k) - \frac{1}{2} \Bigg[H_{y}^{n}
 \left(k + \frac{1}{2}\right) - H_{y}^{n} \left(k - \frac{1}{2}\right)\Bigg]
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 H_{y}^{n + 1} \left(k + \frac{1}{2}\right) = H_{y}^{n} \left(k + \frac{1}{2}\right) -
 \frac{1}{2} \Bigg[\widetilde{E}_{x}^{n + 1/2} (k + 1) - \widetilde{E}_{x}^{n + 1/2} (k)\Bigg]
-\end{equation*}
+\end{equation}
 \end{frame}
 
 % frame 8
@@ -230,9 +230,9 @@ x/c_{0}$.
 direction, which brings the requirement to $\Delta t = \Delta x/(\sqrt{2} c_{0})$.
 \item With a three-dimensional simulation requires $\Delta t = \Delta x/(\sqrt{3} c_{0})$.
 \item This is summarized by the Courant Condition
-\begin{equation*}
+\begin{equation}
 \Delta t = \displaystyle \frac{\Delta x}{\sqrt{n} \cdot c_{0}},
-\end{equation*}
+\end{equation}
 where $n$ is the dimension of the simulation.
 \end{itemize}
 \end{frame}
@@ -246,15 +246,15 @@ being reflected back into the problem space.
 \item If a wave is going toward a boundary in free space, it is traveling at $c_{0}$, the
 speed of light.
 \item In one time step of the FDTD algorithem, it travels
-\begin{equation*}
+\begin{equation}
 Distance = c_{0} \cdot \Delta t = c_{0} \cdot \frac{\Delta x}{2 \cdot c_{0}} =
 \frac{\Delta x}{2}
-\end{equation*}
+\end{equation}
 \item It takes two time steps for the field to cross one cell. Thus an acceptable boundary
 condition might be
-\begin{equation*}
+\begin{equation}
 E_{x}^{n} (0) = E_{x}^{n-2} (1)
-\end{equation*}
+\end{equation}
 \end{itemize}
 \end{frame}
 
@@ -274,22 +274,22 @@ pulse is absorbed at the edges without reflecting anything back.}
 To simulate a medium with a dielectric constant other than $1$, we have to add the
 relative dielectric constant $\varepsilon_{r}$ to Maxwell's equations:
 
-\begin{equation*}
+\begin{equation}
 \frac{\partial E}{\partial t} = \frac{1}{\varepsilon_{0} \varepsilon_{r}} \curl{H}
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 \frac{\partial H}{\partial t} = - \frac{1}{\mu_{0}} \curl{E}
-\end{equation*}
+\end{equation}
 
 simple one-dimensional case:
-\begin{equation*}
+\begin{equation}
 \frac{\partial E_{x}}{\partial t} = - \frac{1}{\varepsilon_{0} \varepsilon_{r}} \frac{\partial H_{y}}{\partial z}
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 \frac{\partial H_{y}}{\partial t} = - \frac{1}{\mu_{0}} \frac{\partial E_{x}}{\partial z}
-\end{equation*}
+\end{equation}
 \end{frame}
 
 % frame 16
@@ -297,17 +297,17 @@ simple one-dimensional case:
 \frametitle{Propagation in a Dielectric medium}
 governing equations,
 
-\begin{equation*}
+\begin{equation}
 \widetilde{E}_{x}^{n + 1/2} (k) = \widetilde{E}_{x}^{n - 1/2} (k) - \frac{1}{2 \cdot
 \varepsilon_{r}} \Bigg[H_{y}^{n}
 \left(k + \frac{1}{2}\right) - H_{y}^{n} \left(k - \frac{1}{2}\right)\Bigg]
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 H_{y}^{n + 1} \left(k + \frac{1}{2}\right) = H_{y}^{n} \left(k + \frac{1}{2}\right) -
 \frac{1}{2} \Bigg[\widetilde{E}_{x}^{n + 1/2} (k + 1) - \widetilde{E}_{x}^{n + 1/2}
 (k)\Bigg]
-\end{equation*}
+\end{equation}
 \end{frame}
 
 % frame 17
@@ -345,63 +345,63 @@ relative dielectric constant of $\varepsilon_{r} = 20$.}
 \frametitle{Propagation in a lossy dielectric medium}
 general form of time-dependent Maxwell's curl equations,
 
-\begin{equation*}
+\begin{equation}
 \varepsilon_{r} \varepsilon_{0} \frac{\partial E}{\partial t} = \curl{H} - J
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 \frac{\partial H}{\partial t} = - \frac{1}{\mu_{0}} \curl{E}
-\end{equation*}
+\end{equation}
 
 $J$, the current density, can also be written as
-\begin{equation*}
+\begin{equation}
 J = \sigma E
-\end{equation*}
+\end{equation}
 where $\sigma$ is the conductivity. 
 
 substituting,
-\begin{equation*}
+\begin{equation}
 \frac{\partial E}{\partial t} = \frac{1}{\varepsilon_{r} \varepsilon_{0}} \curl{H} -
 \frac{\sigma}{\varepsilon_{r} \varepsilon_{0}} E
-\end{equation*}
+\end{equation}
 
 simple one-dimensional equation:
-\begin{equation*}
+\begin{equation}
 \frac{\partial E_{x} (t)}{\partial t} = - \frac{1}{\varepsilon_{r} \varepsilon_{0}}
 \frac{\partial H_{y} (t)}{\partial z} - \frac{\sigma}{\varepsilon_{r} \varepsilon_{0}}
 E_{x} (t)
-\end{equation*}
+\end{equation}
 \end{frame}
 
 % frame 21
 \begin{frame}
 \frametitle{Propagation in a lossy dielectric medium}
 using the change of variables,
-\begin{equation*}
+\begin{equation}
 \frac{\partial \widetilde{E}_{x} (t)}{\partial t} = - \frac{1}{\varepsilon_{r}
 \sqrt{\mu_{0} \varepsilon_{0}}} \frac{\partial H_{y} (t)}{\partial z} -
 \frac{\sigma}{\varepsilon_{r} \varepsilon_{0}} \widetilde{E}_{x} (t)
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 \frac{\partial H_{y} (t)}{\partial t} = - \frac{1}{\sqrt{\mu_{0} \varepsilon_{0}}}
 \frac{\partial \widetilde{E}_{x} (t)}{\partial t}
-\end{equation*}
+\end{equation}
 
 governing equations,
-\begin{equation*}
+\begin{equation}
 \widetilde{E}_{x}^{n + 1/2} (k) = \frac{\displaystyle \left(1 - \frac{\Delta t \cdot \sigma}{2
 \varepsilon_{r} \varepsilon_{0}}\right)}{\displaystyle \left(1 + \frac{\Delta t \cdot \sigma}{2 \varepsilon_{r}
 \varepsilon_{0}}\right)} \widetilde{E}_{x}^{n - 1/2} (k) - \frac{\displaystyle
 \left(\frac{1}{2}\right)}{\displaystyle \varepsilon_{r} \left(1 + \frac{\Delta t \cdot
 \sigma}{2 \varepsilon_{r} \varepsilon_{0}}\right)} \Bigg[H_{y}^{n} \left(k +
 \frac{1}{2}\right) - H_{y}^{n} \left(k - \frac{1}{2}\right)\Bigg]
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 H_{y}^{n + 1} \left(k + \frac{1}{2}\right) = H_{y}^{n} \left(k + \frac{1}{2}\right) -
 \frac{1}{2}  \Bigg[\widetilde{E}_{x}^{n + 1/2} (k + 1) - \widetilde{E}_{x}^{n + 1/2} (k)\Bigg]
-\end{equation*}
+\end{equation}
 \end{frame}
 
 % frame 22
@@ -420,29 +420,29 @@ MHz and originates at cell number $5$.}
 \frametitle{Reformulation using the flux density}
 general form of Maxwell's equations
 
-\begin{equation*}
+\begin{equation}
 \frac{\partial D}{\partial t} = \curl{H}
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 D(\omega) = \varepsilon_{0} \cdot \varepsilon_{r}^{*} (\omega) \cdot E(\omega)
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 \frac{\partial H}{\partial t} = - \frac{1}{\mu_{0}} \curl{E}
-\end{equation*}
+\end{equation}
 
 where $D$ is the electric flux density.
 
 normalizing these equations, using
 
-\begin{equation*}
+\begin{equation}
 \widetilde{E} = \sqrt{\frac{\varepsilon_{0}}{\mu_{0}}} \cdot E
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 \widetilde{D} = \sqrt{\frac{1}{\varepsilon_{0} \mu_{0}}} \cdot D
-\end{equation*}
+\end{equation}
 
 \end{frame}
 
@@ -452,32 +452,32 @@ normalizing these equations, using
 
 which leads to
 
-\begin{equation*}
+\begin{equation}
 \frac{\partial \widetilde{D}}{\partial t} = \frac{1}{\sqrt{\varepsilon_{0} \mu_{0}}} \curl{H}
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 \widetilde{D}(\omega) = \varepsilon_{r}^{*} (\omega) \cdot \widetilde{E}(\omega)
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 \frac{\partial H}{\partial t} = - \frac{1}{\sqrt{\varepsilon_{0} \mu_{0}}} \curl{\widetilde{E}}
-\end{equation*}
+\end{equation}
 
 We have to get $\widetilde{D}(\omega) = \varepsilon_{r}^{*} (\omega) \cdot
 \widetilde{E}(\omega)$ into a time-domain difference equation for implementation into
 FDTD. We will assume that we are dealing with a lossy dielectric medium of the form
 
-\begin{equation*}
+\begin{equation}
 \varepsilon_{r}^{*}(\omega) = \varepsilon_{r} + \frac{\sigma}{j \omega \cdot
 \varepsilon_{0}}
-\end{equation*}
+\end{equation}
 
 substituting the above equation,
 
-\begin{equation*}
+\begin{equation}
 \widetilde{D}(\omega) = \varepsilon_{r} \widetilde{E}(\omega) + \frac{\sigma}{j \omega \cdot \varepsilon_{0}} \widetilde{E}(\omega)
-\end{equation*}
+\end{equation}
 
 \end{frame}
 
@@ -487,25 +487,25 @@ substituting the above equation,
 Fourier theory tells us that $1/(j \omega)$ in the frequency domain is integration in the
 time domain, so the above equation becomes
 
-\begin{equation*}
+\begin{equation}
 \widetilde{D}(t) = \varepsilon_{r} \widetilde{E}(t) + \frac{\sigma}{\varepsilon_{0}}
 \bigintssss_{0}^{t} \widetilde{E}(t') dt'
-\end{equation*}
+\end{equation}
 
 the integral will be approximated as a summation over the time steps $\Delta t$:
 
-\begin{equation*}
+\begin{equation}
 \widetilde{D}^{n} = \varepsilon_{r} \widetilde{E}^{n} + \frac{\sigma \cdot \Delta
 t}{\varepsilon_{0}} \sum_{i = 0}^{n} \widetilde{E}^{i}
-\end{equation*}
+\end{equation}
 
 separating the $E^{n}$ term from the rest of the summation:
 
-\begin{equation*}
+\begin{equation}
 \widetilde{D}^{n} = \varepsilon_{r} \widetilde{E}^{n} + \frac{\sigma \cdot \Delta
 t}{\varepsilon_{0}} \widetilde{E}^{n} + \frac{\sigma \cdot \Delta t}{\varepsilon_{0}}
 \sum_{i = 0}^{n - 1} \widetilde{E}^{i}
-\end{equation*}
+\end{equation}
 \end{frame}
 
 % frame 26
@@ -514,32 +514,65 @@ t}{\varepsilon_{0}} \widetilde{E}^{n} + \frac{\sigma \cdot \Delta t}{\varepsilon
 We can calculate $E^{n}$, the current value of $E$, from the current value of $D$ and
 previous values of $E$.
 
-\begin{equation*}
+\begin{equation}
 \widetilde{E}^{n} = \displaystyle \frac{\widetilde{D}^{n} - \displaystyle \frac{\sigma \cdot \Delta
 t}{\varepsilon_{0}} \displaystyle \sum\limits_{i=0}^{n-1} \widetilde{E}^{i}}{\displaystyle
 \varepsilon_{r} + \displaystyle \frac{\sigma \cdot \Delta t}{\varepsilon_{0}}}
-\end{equation*}
+\end{equation}
 
 governing equations,
 
-\begin{equation*}
+\begin{equation}
 \widetilde{D}^{n+1/2} (k) = \widetilde{D}^{n-1/2} (k) - \frac{1}{2} \Bigg[H_{y}^{n}
 \left(k + \frac{1}{2}\right) - H_{y}^{n} \left(k - \frac{1}{2}\right)\Bigg] 
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
 H_{y}^{n + 1} \left(k + \frac{1}{2}\right) = H_{y}^{n} \left(k + \frac{1}{2}\right) -
 \frac{1}{2} \Bigg[\widetilde{E}_{x}^{n + 1/2} (k + 1) - \widetilde{E}_{x}^{n + 1/2} (k)\Bigg]
-\end{equation*}
+\end{equation}
 
 \end{frame}
 
+% frame 27
+\begin{frame}
+\frametitle{Calculating the frequency domain output}
+To calculate the $E$ field distribution at every point in a dielectric medium subject to
+illumination at various frequencies.
 
+The Fourier transform of the $E$ field $E(t)$ at a frequency $f_{1}$ is calculated by the
+equation
 
+\begin{equation}
+E(f_{1}) = \displaystyle \bigintssss_{0}^{t_{T}} E(t) \cdot e^{-j2\pi \cdot f_{1} \cdot t} dt
+\end{equation}
 
+the lower limit of the integral is at $0$ because the FDTD program assumes all causal
+functions and the upper limit is $t_{T}$, the time at which the FDTD iteration is halted.
 
+Rewriting Eq. (51) in a finite-difference form,
 
+\begin{equation}
+E(f_{1}) = \sum_{n=0}^{T} E(n \cdot \Delta t) \cdot e^{-j2\pi \cdot f_{1}(n \cdot \Delta t)}
+\end{equation}
 
+where $T$ is the number of iterations and $\Delta t$ is the time step, so $t_{T} = \Delta
+t \cdot T$
 
+\end{frame}
+
+% frame 28
+\begin{frame}
+\frametitle{Calculating the frequency domain output}
+Equation (52) can be divided into its real and imaginary parts
+
+\begin{equation}
+\begin{split}
+E(f_{1}) = \sum_{n = 0}^{T} E(n \cdot \Delta t) \cdot \cos \, (2\pi f_{1} \cdot \Delta t \cdot n) \\
+- j \sum_{n = 0}^{T} E(n \cdot \Delta t) \cdot \sin \, (2\pi f_{1} \cdot \Delta t \cdot n)
+\end{split}
+\end{equation}
+
+\end{frame}
 
 \end{document}
